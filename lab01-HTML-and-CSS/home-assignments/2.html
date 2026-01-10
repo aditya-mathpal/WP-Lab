@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        text-align: right;
+      }
+    </style>
+    <title>
+      Table
+    </title>
+  </head>
+
+  <script>
+    const populationData = [
+      { country: "INDIA", year: 1998, population: 85 },
+      { country: "INDIA", year: 1999, population: 90 },
+      { country: "INDIA", year: 2000, population: 100 },
+
+      { country: "USA", year: 1998, population: 30 },
+      { country: "USA", year: 1999, population: 35 },
+      { country: "USA", year: 2000, population: 40 },
+
+      { country: "UK", year: 1998, population: 25 },
+      { country: "UK", year: 1999, population: 30 },
+      { country: "UK", year: 2000, population: 35 }
+    ];
+  </script>
+
+  <table id="populationTable">
+    <colgroup>
+      <col style="background-color:#FFE792; width:100px">
+      <col style="background-color:#8FA8E0; width:150px">
+      <col style="background-color:#AAD18E; width:125px">
+    </colgroup>
+    <tr style="background-color: #F80202;">
+      <th>Country</th>
+      <th colspan=2>Population (in Crores)</th>
+    </tr>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <script>
+    const countryCounts = {};
+
+    populationData.forEach(item => {
+      countryCounts[item.country] = (countryCounts[item.country] || 0) + 1;
+    });
+
+    const tableBody = document.querySelector("#populationTable tbody");
+
+    let lastCountry = null;
+
+    populationData.forEach(item => {
+      const row = document.createElement("tr");
+
+      if (item.country !== lastCountry) {
+        row.innerHTML = `
+          <th rowspan="${countryCounts[item.country]}">${item.country}</th>
+          <td>${item.year}</td>
+          <td>${item.population}</td>
+        `;
+        lastCountry = item.country;
+      } else {
+        row.innerHTML = `
+          <td>${item.year}</td>
+          <td>${item.population}</td>
+        `;
+      }
+
+      tableBody.appendChild(row);
+    });
+  </script>
+
+</html>
