@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Winter Vacation Videos</title>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(to bottom, #0000FF, #FFFFFF);
+      }
+      .video-row {
+      display: flex;
+      gap: 100px;
+      justify-content: center;
+      align-items: flex-start;
+      }
+      .video-row > video {
+        margin-top: 40px;
+      }
+
+      .video-column {
+        display: flex;
+        flex-direction: column;
+      }
+      .video-column h2 {
+        margin: 0 0 10px 0;
+        height: 31px;
+      }
+
+      video {
+        width: 500px;
+        border: 2px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="background-color: #202cb3; color: white; font-family: '', cursive;">Share Your Travels</h1>
+    <div class="video-row">
+
+      <div class="video-column">
+        <h2 style="color: white; font-family: '', cursive;">Videos</h2>
+        <video controls>
+          <source src="paris1.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <video controls>
+        <source src="paris2.mp4" type="video/mp4">
+      </video>
+
+      <video controls>
+        <source src="paris3.mp4" type="video/mp4">
+      </video>
+    </div>
+  </body>
+</html>
