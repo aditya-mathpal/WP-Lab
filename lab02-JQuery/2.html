@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <title>Calculator</title>
+
+    <script src="../jquery-3.7.1.min.js"></script>
+
+    <style>
+      input[type="text"] {
+          width: 150px;
+          height: 30px;
+          margin: 5px;
+          text-align: right;
+      }
+
+      button {
+          width: 50px;
+          height: 40px;
+          margin: 5px;
+          font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <input type="text" id="num1">
+    <input type="text" id="num2">
+    <br>
+    <input type="text" id="result" readonly>
+    <br><br>
+
+    <button id="add">+</button>
+    <button id="sub">-</button>
+    <button id="mul">*</button>
+    <button id="div">/</button>
+
+    <script>
+      $(function () {
+
+          $("#add").click(function () {
+              let a = parseFloat($("#num1").val());
+              let b = parseFloat($("#num2").val());
+              $("#result").val(a + b);
+          });
+
+          $("#sub").click(function () {
+              let a = parseFloat($("#num1").val());
+              let b = parseFloat($("#num2").val());
+              $("#result").val(a - b);
+          });
+
+          $("#mul").click(function () {
+              let a = parseFloat($("#num1").val());
+              let b = parseFloat($("#num2").val());
+              $("#result").val(a * b);
+          });
+
+          $("#div").click(function () {
+              let a = parseFloat($("#num1").val());
+              let b = parseFloat($("#num2").val());
+              $("#result").val(a / b);
+          });
+
+      });
+    </script>
+
+  </body>
+</html>

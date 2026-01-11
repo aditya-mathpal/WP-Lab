@@ -1,0 +1,127 @@
+<html>
+  <head>
+    <title>Birthday Card</title>
+
+    <script src="../jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+          font-family: Arial;
+          background-color: #FFFEE0;
+      }
+
+      #main {
+          display: flex;
+          gap: 20px;
+      }
+
+      #controls {
+          width: 300px;
+      }
+
+      #card {
+          width: 400px;
+          height: 500px;
+          border: 4px solid black;
+          text-align: center;
+      }
+
+      #card img {
+          width: 200px;
+          margin-top: 100px;
+      }
+
+      #greeting {
+        margin-left: 100px;
+        margin-right: 100px;
+      }
+
+      select,
+      input[type="text"],
+      textarea {
+          width: 100%;
+          margin-bottom: 10px;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+          width: auto;
+          margin-right: 5px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <div id="main">
+
+        <div id="controls">
+            Choose a background color:
+            <select id="bgcolor">
+                <option value="yellow">Yellow</option>
+                <option value="pink">Pink</option>
+                <option value="lightblue">Light Blue</option>
+            </select>
+
+            Choose a font:
+            <select id="font">
+                <option value="Verdana">Verdana</option>
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+
+            Specify a numeric font size:
+            <input type="text" id="fontsize" value="25">
+
+            Choose a border style:<br>
+            <input type="radio" name="border" value="none" checked> None <br>
+            <input type="radio" name="border" value="double"> Double <br>
+            <input type="radio" name="border" value="solid"> Solid <br>
+            <br>
+
+            <input type="checkbox" id="picture" checked> Add the Default Picture
+            <br><br>
+
+            Enter the greeting text below:
+            <textarea id="message">Happy Birthday, and many more</textarea>
+
+            <br>
+            <button id="update">Update</button>
+        </div>
+
+        <div id="card"> 
+            <h1 id="greeting">Happy Birthday, and many more</h1>
+            <img id="cake" src="./cake.png">
+        </div>
+
+    </div>
+
+    <script>
+    $(function () {
+
+        $("#update").click(function () {
+
+            $("#card").css("background-color", $("#bgcolor").val());
+            $("#greeting").css("font-family", $("#font").val());
+            $("#greeting").css("font-size", $("#fontsize").val() + "px");
+
+            let b = $("input[name='border']:checked").val();
+            if (b === "none") $("#card").css("border", "none");
+            if (b === "solid") $("#card").css("border", "4px solid black");
+            if (b === "double") $("#card").css("border", "4px double black");
+
+            $("#greeting").text($("#message").val());
+
+            if ($("#picture").is(":checked")) {
+                $("#cake").show();
+            } else {
+                $("#cake").hide();
+            }
+        });
+
+    });
+    </script>
+
+  </body>
+</html>
