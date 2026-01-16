@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Bouncing Ball</title>
+
+    <script src="../../jquery-3.7.1.min.js"></script>
+
+    <style>
+      #container {
+        width: 400px;
+        height: 300px;
+        border: 2px solid black;
+        position: relative;
+        overflow: hidden;
+      }
+
+      #ball {
+        width: 40px;
+        height: 40px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 180px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="container">
+      <div id="ball"></div>
+    </div>
+
+    <script>
+      $(function () {
+
+        let ground = 260;
+        let height = 260;
+        let damping = 0.7;
+        let time = 600;
+
+        function fall() {
+          $("#ball").animate(
+            { top: ground + "px" },
+            time,
+            "swing",
+            rise
+          );
+        }
+
+        function rise() {
+          height = height * damping;
+
+          if (height < 10) {
+            return;
+          }
+
+          $("#ball").animate(
+            { top: (ground - height) + "px" },
+            time,
+            "swing",
+            fall
+          );
+        }
+
+        fall();
+
+      });
+    </script>
+
+  </body>
+</html>
