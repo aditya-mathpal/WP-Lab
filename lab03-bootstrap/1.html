@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Student Bio-Data</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Student Bio-Data Form</h2>
+        <form id="biodataForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label><br>
+                <input type="radio" name="gender" value="Male" id="male" required>
+                <label for="male">Male</label><br>
+                <input type="radio" name="gender" value="Female" id="female">
+                <label for="female">Female</label><br>
+                <input type="radio" name="gender" value="Other" id="other">
+                <label for="other">Other</label>
+            </div>
+            <div class="form-group">
+                <label>Hobbies:</label><br>
+                <input type="checkbox" id="reading" value="Reading">
+                <label for="reading">Reading</label><br>
+                <input type="checkbox" id="sports" value="Sports">
+                <label for="sports">Sports</label><br>
+                <input type="checkbox" id="music" value="Music">
+                <label for="music">Music</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <h4 class="mt-4">Student Data</h4>
+        <table class="table table-bordered" id="studentTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Hobbies</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        $('#biodataForm').submit(function(event){
+            event.preventDefault();
+            var name = $('#name').val();
+            var gender = $('input[name="gender"]:checked').val();
+            var hobbies = [];
+            $('input[type="checkbox"]:checked').each(function(){
+                hobbies.push($(this).val());
+            });
+            var row = '<tr><td>' + name + '</td><td>' + gender + '</td><td>' + hobbies.join(', ') + '</td></tr>';
+            $('#studentTable tbody').append(row);
+            this.reset();
+        });
+    </script>
+</body>
+</html>

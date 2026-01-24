@@ -1,0 +1,4 @@
+- week 11 submission + viva
+- group of 3
+- take approval of project idea before lab 5
+- should be helpful to the institution or department

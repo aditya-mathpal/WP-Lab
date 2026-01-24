@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Time Table</title>
+</head>
+<body>
+    <div class="container mt-4">
+
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next { width: 5%; }
+
+        .carousel-control-prev { left: -200px; }
+        .carousel-control-next { right: -200px; }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: black;
+            border-radius: 50%;
+            padding: 18px;
+        }
+    </style>
+
+    <div id="timetableCarousel" class="carousel slide" data-interval="false">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <h4 class="text-center">Monday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td>GT</td><td>PCAP</td><td></td><td>CD</td>
+                        <td>OR</td><td></td><td></td><td></td><td></td><td></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center">Tuesday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td colspan="4">CDL (C1)</td>
+                        <td></td><td></td>
+                        <td>TSA</td>
+                        <td>EEFM</td>
+                        <td colspan="2">Placement</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center">Wednesday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td>TSA</td><td>EEFM</td><td></td><td>GT</td>
+                        <td>PCAP</td><td></td><td></td>
+                        <td colspan="3">WPL (C1)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center">Thursday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td></td>
+                        <td colspan="3">PPL (C2)</td>
+                        <td></td><td></td>
+                        <td>CD</td>
+                        <td>OR</td>
+                        <td colspan="2">Placement</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center">Friday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td>CD</td><td>OR</td>
+                        <td></td>
+                        <td>TSA</td>
+                        <td>EEFM</td><td></td>
+                        <td colspan="4">PPL (C1) | CDL (C2)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="carousel-item">
+                <h4 class="text-center">Saturday</h4>
+                <table class="table table-bordered text-center">
+                    <tr>
+                        <th>Time</th>
+                        <th>8-9</th><th>9-10</th><th>10-10:30</th><th>10:30-11:30</th>
+                        <th>11:30-12:30</th><th></th><th>1-2</th><th>2-3</th><th>3-3:30</th><th>3:30-4:30</th>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td colspan="4">WPL (C2)</td>
+                        <td></td><td></td>
+                        <td>GT</td><td>PCAP</td><td></td><td></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#timetableCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#timetableCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>CRUD</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Employee CRUD Form</h2>
+        <form id="employeeForm">
+            <div class="form-group">
+                <label for="empName">Name:</label>
+                <input type="text" id="empName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="empDept">Department:</label>
+                <input type="text" id="empDept" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="empSalary">Salary:</label>
+                <input type="number" id="empSalary" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add / Update</button>
+        </form>
+
+        <h4 class="mt-4">Employee Data</h4>
+        <table class="table table-bordered" id="employeeTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Salary</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let editIndex = null;
+
+        $('#employeeForm').submit(function(event){
+            event.preventDefault();
+
+            var name = $('#empName').val();
+            var dept = $('#empDept').val();
+            var salary = $('#empSalary').val();
+
+            if(editIndex === null){
+                var row = '<tr><td>' + name + '</td><td>' + dept + '</td><td>' + salary + '</td>' +
+                          '<td><button class="btn btn-sm btn-info editBtn">Edit</button> ' +
+                          '<button class="btn btn-sm btn-danger deleteBtn">Delete</button></td></tr>';
+                $('#employeeTable tbody').append(row);
+            } else {
+                let row = $('#employeeTable tbody tr').eq(editIndex);
+                row.find('td:eq(0)').text(name);
+                row.find('td:eq(1)').text(dept);
+                row.find('td:eq(2)').text(salary);
+                editIndex = null;
+            }
+
+            this.reset();
+        });
+
+        $('#employeeTable').on('click', '.deleteBtn', function(){
+            $(this).closest('tr').remove();
+        });
+
+        $('#employeeTable').on('click', '.editBtn', function(){
+            let row = $(this).closest('tr');
+            editIndex = row.index();
+            $('#empName').val(row.find('td:eq(0)').text());
+            $('#empDept').val(row.find('td:eq(1)').text());
+            $('#empSalary').val(row.find('td:eq(2)').text());
+        });
+    </script>
+</body>
+</html>
