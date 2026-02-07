@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <script>
+        function checkEligibility() {
+            let doj = document.getElementById("doj").value;
+            if (doj === "") {
+                document.getElementById("result").innerText = "";
+                return;
+            }
+
+            let parts = doj.split("-");
+            let joinYear = parseInt(parts[0]);
+            let joinMonth = parseInt(parts[1]);
+            let joinDay = parseInt(parts[2]);
+
+            let today = new Date();
+            let years = today.getFullYear() - joinYear;
+
+            if (
+                today.getMonth() + 1 < joinMonth ||
+                (today.getMonth() + 1 === joinMonth &&
+                 today.getDate() < joinDay)
+            ) {
+                years--;
+            }
+
+            document.getElementById("result").innerText =
+                years >= 5 ? "YES" : "NO";
+        }
+    </script>
+</head>
+<body>
+    <h2>Promotion Eligibility Form</h2>
+
+    <form onsubmit="return false;">
+        Employee ID:
+        <select>
+            <option>EMP001</option>
+            <option>EMP002</option>
+            <option>EMP003</option>
+            <option>EMP004</option>
+        </select>
+        <br><br>
+
+        Date of Joining:
+        <input type="date" id="doj">
+        <br><br>
+
+        <button type="button" onclick="checkEligibility()">
+            Am I Eligible for Promotion
+        </button>
+    </form>
+
+    <br>
+
+    <label>Eligible for Promotion: </label>
+    <label id="result"></label>
+</body>
+</html>

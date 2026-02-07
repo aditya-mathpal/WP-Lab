@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details Form</title>
+    <script>
+        function submitDetails() {
+            let name = document.getElementById("name").value;
+            let dob = document.getElementById("dob").value;
+            let address = document.getElementById("address").value;
+            let contact = document.getElementById("contact").value;
+            let email = document.getElementById("email").value;
+
+            let eng = parseInt(document.getElementById("english").value);
+            let phy = parseInt(document.getElementById("physics").value);
+            let chem = parseInt(document.getElementById("chemistry").value);
+
+            let total = eng + phy + chem;
+            let percentage = (total / 300) * 100;
+
+            document.getElementById("percentage").innerText =
+                "Percentage: " + percentage.toFixed(2) + "%";
+
+            let output =
+                "Name: " + name + "\n" +
+                "Date of Birth: " + dob + "\n" +
+                "Address: " + address + "\n" +
+                "Contact Number: " + contact + "\n" +
+                "Email ID: " + email + "\n" +
+                "English: " + eng + "\n" +
+                "Physics: " + phy + "\n" +
+                "Chemistry: " + chem + "\n" +
+                "-----------------------------\n";
+
+            document.getElementById("details").value += output;
+
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Details Form</h2>
+
+    <form onsubmit="return submitDetails();">
+        Name: <input type="text" id="name" required><br><br>
+        Date of Birth: <input type="date" id="dob" required><br><br>
+        Address: <textarea id="address" required></textarea><br><br>
+        Contact Number: <input type="text" id="contact" required><br><br>
+        Email ID: <input type="email" id="email" required><br><br>
+
+        English Marks: <input type="number" id="english" required><br><br>
+        Physics Marks: <input type="number" id="physics" required><br><br>
+        Chemistry Marks: <input type="number" id="chemistry" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <br>
+
+    <label id="percentage">Percentage: </label>
+
+    <br><br>
+
+    <textarea id="details" rows="12" cols="50" readonly></textarea>
+    
+</body>
+</html>
