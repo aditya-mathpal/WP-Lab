@@ -24,5 +24,6 @@ urlpatterns = [
     path('ex1app/', include('ex1app.urls')),
     path('ex2app/', include('ex2app.urls')),
     path('homeex1app/', include('homeex1app.urls')),
+    path('basic_calc/', include('basic_calc.urls')),
+    path('magazine/', include('magazine.urls')),
 ]
-

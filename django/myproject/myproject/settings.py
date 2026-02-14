@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'ex1app',
     'ex2app',
     'homeex1app',
+    'basic_calc',
+    'magazine',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

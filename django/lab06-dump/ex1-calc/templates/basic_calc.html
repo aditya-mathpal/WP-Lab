@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+</head>
+<body>
+    <input type="number" id="num1" placeholder="First number">
+    <input type="number" id="num2" placeholder="Second number">
+
+    <select id="operation">
+    <option value="add">Add</option>
+    <option value="sub">Subtract</option>
+    <option value="mul">Multiply</option>
+    <option value="div">Divide</option>
+    </select>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+        let n1 = parseInt(document.getElementById("num1").value);
+        let n2 = parseInt(document.getElementById("num2").value);
+        let op = document.getElementById("operation").value;
+        let res;
+
+        if (op === "add") res = n1 + n2;
+        if (op === "sub") res = n1 - n2;
+        if (op === "mul") res = n1 * n2;
+        if (op === "div") res = n2 !== 0 ? n1 / n2 : "Cannot divide by zero";
+
+        document.getElementById("result").innerText = "Result: " + res;
+        }
+    </script>
+</body>
+</html>
