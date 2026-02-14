@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .page {
+            display: none;
+        }
+        img {
+            width: 300px;
+        }
+        a {
+            display: block;
+            margin: 10px;
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="home" class="page">
+        <h1>The Science of Interstellar</h1>
+        <img src="{% static 'image.jpg' %}">
+        
+        <a onclick="showPage('meta')">Metadata</a>
+        <a onclick="showPage('reviews')">Reviews</a>
+        <a onclick="showPage('publisher')">Publisher Info</a>
+    </div>
+
+    <div id="meta" class="page">
+        <h2>Metadata</h2>
+        <p>Author: Kip Thorne</p>
+        <p>Genre: Non-fiction</p>
+        <p>Year: 2014</p>
+        <a onclick="showPage('home')">Home</a>
+    </div>
+
+    <div id="reviews" class="page">
+        <h2>Reviews</h2>
+        <p>"Explains complex concepts in a simple manner."</p>
+        <p>"Must read for fans of Interstellar."</p>
+        <a onclick="showPage('home')">Home</a>
+    </div>
+
+    <div id="publisher" class="page">
+        <h2>Publisher Info</h2>
+        <p>Publisher: W. W. Norton & Company</p>
+        <p>Location: New York</p>
+        <a onclick="showPage('home')">Home</a>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].style.display = "none";
+            }
+            document.getElementById(pageId).style.display = "block";
+        }
+        showPage("home");
+    </script>
+</body>
+</html>

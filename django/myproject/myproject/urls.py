@@ -26,4 +26,6 @@ urlpatterns = [
     path('homeex1app/', include('homeex1app.urls')),
     path('basic_calc/', include('basic_calc.urls')),
     path('magazine/', include('magazine.urls')),
+    path('book/', include('book.urls')),
+    path('label/', include('label.urls')),
 ]

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customize Label</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Details</h2>
+
+    <input type="text" id="name" placeholder="Enter Name"><br><br>
+    <input type="text" id="message" placeholder="Enter Message"><br><br>
+
+    <input type="checkbox" id="bold" onchange="formatText()"> Bold
+    <input type="checkbox" id="italic" onchange="formatText()"> Italic
+    <input type="checkbox" id="underline" onchange="formatText()"> Underline
+    <br><br>
+
+    <input type="radio" name="color" value="red" onchange="formatText()"> Red
+    <input type="radio" name="color" value="blue" onchange="formatText()"> Blue
+    <input type="radio" name="color" value="green" onchange="formatText()"> Green
+    <br><br>
+
+    <button onclick="displayMessage()">Display</button>
+    <button onclick="clearAll()">Clear</button>
+    <button onclick="exitApp()">Exit</button>
+
+    <div id="output"></div>
+
+    <script>
+        function displayMessage() {
+            var name = document.getElementById("name").value;
+            var message = document.getElementById("message").value;
+            document.getElementById("output").innerHTML = name + ": " + message;
+            formatText();
+        }
+
+        function formatText() {
+            var output = document.getElementById("output");
+
+            output.style.fontWeight = document.getElementById("bold").checked ? "bold" : "normal";
+            output.style.fontStyle = document.getElementById("italic").checked ? "italic" : "normal";
+            output.style.textDecoration = document.getElementById("underline").checked ? "underline" : "none";
+
+            var colors = document.getElementsByName("color");
+            for (var i = 0; i < colors.length; i++) {
+                if (colors[i].checked) {
+                    output.style.color = colors[i].value;
+                }
+            }
+        }
+
+        function clearAll() {
+            document.getElementById("name").value = "";
+            document.getElementById("message").value = "";
+            document.getElementById("output").innerHTML = "";
+            document.getElementById("output").style = "";
+        }
+
+        function exitApp() {
+            window.close();
+        }
+    </script>
+</body>
+</html>

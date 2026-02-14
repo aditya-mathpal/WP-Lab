@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'homeex1app',
     'basic_calc',
     'magazine',
+    'book',
+    'label',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
