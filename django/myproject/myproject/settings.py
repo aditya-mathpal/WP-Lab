@@ -32,6 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'groceryform',
+    'studentform',
+    'carform',
+    'formex',
     'webapp',
     'formapp',
     'ex1app',
