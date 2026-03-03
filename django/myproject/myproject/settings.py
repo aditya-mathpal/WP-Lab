@@ -32,6 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'feedback',
+    'billing',
+    'cgpa',
+    'survey',
+    'register',
     'groceryform',
     'studentform',
     'carform',

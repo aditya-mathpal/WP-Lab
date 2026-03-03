@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <p>
+        Student name:
+        {{ form.name }}
+    </p>
+
+    <p>
+        Sex:
+        {{ form.gender }}
+    </p>
+
+    <p>
+        Select course:
+        {{ form.course }}
+    </p>
+
+    <p>
+        Technical Coverage:
+        {{ form.coverage }}
+    </p>
+
+    <p>
+        Suggestion:<br>
+        {{ form.suggestion }}
+    </p>
+
+    <button type="submit">Submit Form</button>
+
+</form>
+
+{% if message %}
+    <p>{{ message }}</p>
+{% endif %}
+
+</body>
+</html>

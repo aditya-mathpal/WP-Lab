@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 2</title>
+</head>
+<body>
+
+{% if name and cgpa %}
+    <h2>Welcome {{ name }}</h2>
+    <h3>Your CGPA is = {{ cgpa|floatformat:2 }}</h3>
+{% else %}
+    <p>No session data found.</p>
+{% endif %}
+
+<br>
+<a href="{% url 'page1' %}">Go Back</a>
+
+</body>
+</html>

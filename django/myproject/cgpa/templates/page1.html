@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page 1</title>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <p>
+        {{ form.name.label_tag }}
+        {{ form.name }}
+    </p>
+
+    <p>
+        {{ form.total_marks.label_tag }}
+        {{ form.total_marks }}
+    </p>
+
+    <button type="submit">Calculate</button>
+
+</form>
+
+</body>
+</html>

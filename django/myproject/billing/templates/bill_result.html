@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Brand: {{ brand }}</p>
+
+<p>Items:</p>
+<ul>
+    {% for item in items %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+<p>Quantity: {{ quantity }}</p>
+
+<p>Total Amount: {{ total }}</p>
+
+<a href="{% url 'billing' %}">Go Back</a>
+
+</body>
+</html>

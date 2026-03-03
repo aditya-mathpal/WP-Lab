@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Result</title>
+</head>
+<body>
+
+<h3>How is the book ASP.NET with C# by Vipul Prakashan?</h3>
+
+<p>Good: {{ good|floatformat:0 }}%</p>
+<p>Satisfactory: {{ satisfactory|floatformat:0 }}%</p>
+<p>Bad: {{ bad|floatformat:0 }}%</p>
+
+<br>
+<a href="{% url 'survey' %}">Return to Survey</a>
+
+</body>
+</html>
