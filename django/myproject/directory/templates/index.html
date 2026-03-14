@@ -1,0 +1,22 @@
+
+<h1>Website Directory</h1>
+
+<h2>Categories</h2>
+<ul>
+{% for category in categories %}
+    <li>{{ category.name }} | Visits: {{ category.visits }} | Likes: {{ category.likes }}</li>
+{% endfor %}
+</ul>
+
+<h2>Pages</h2>
+<ul>
+{% for page in pages %}
+    <li>
+        <a href="{{ page.url }}">{{ page.title }}</a>
+        (Views: {{ page.views }}) - Category: {{ page.category.name }}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/add_category/">Add Category</a><br>
+<a href="/add_page/">Add Page</a>

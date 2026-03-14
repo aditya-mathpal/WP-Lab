@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'companydb',
+    'directory',
+    'blog',
     'feedback',
     'billing',
     'cgpa',
