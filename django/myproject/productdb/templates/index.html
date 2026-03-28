@@ -1,0 +1,12 @@
+<h1>Products</h1>
+
+<ul>
+{% for product in products %}
+    <li>
+        <b>{{ product.title }}</b> - ₹{{ product.price }}<br>
+        {{ product.description }}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/product/add/">Add Product</a>

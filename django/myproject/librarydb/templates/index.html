@@ -1,0 +1,20 @@
+<h1>Library</h1>
+
+<h2>Books</h2>
+
+<ul>
+{% for book in books %}
+    <li>
+        <b>{{ book.title }}</b> ({{ book.publication_date }})<br>
+        Publisher: {{ book.publisher.name }}<br>
+        Authors:
+        {% for author in book.authors.all %}
+            {{ author.first_name }} {{ author.last_name }},
+        {% endfor %}
+    </li>
+{% endfor %}
+</ul>
+
+<a href="/library/add_author/">Add Author</a><br>
+<a href="/library/add_publisher/">Add Publisher</a><br>
+<a href="/library/add_book/">Add Book</a>

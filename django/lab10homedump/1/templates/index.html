@@ -1,0 +1,19 @@
+<h2>Student Entry</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Student</button>
+</form>
+
+<hr>
+
+<h2>All Students</h2>
+
+<ul>
+{% for s in students %}
+    <li>
+        {{ s.student_id }} - {{ s.student_name }} - {{ s.course_name }} - {{ s.date_of_birth }}
+    </li>
+{% endfor %}
+</ul>

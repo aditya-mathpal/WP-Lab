@@ -54,7 +54,6 @@ INSTALLED_APPS = [
     # 'magazine',
     # 'book',
     # 'label',
-    'studentdb',
     'humandb',
     'productdb',
     'librarydb',
